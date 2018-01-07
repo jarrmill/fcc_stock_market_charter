@@ -29,9 +29,11 @@ export function request_stock(stock_name){
 
 export function getAllStocks(){
   return new Promise(function(resolve, reject){
+    console.log("Root: ", `${root_url}/getstocks`);
     axios.get(`${root_url}/getstocks`).then(response => {
       resolve(response.data);
     }).catch(error => {
+      console.log("Error fetching GetAllStocks");
       reject(error);
     });
   });
