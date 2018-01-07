@@ -2,7 +2,7 @@ import React from "react";
 import io from "socket.io-client";
 import { getAllStocks } from './stock_functions';
 import Chart from './chart/chart.js';
-import { MainContainer, ButtonContainer, Button, ButtRow, ButtonColor, SearchBarContainer } from './styled';
+import { MainContainer, ButtonContainer, Button, ButtRow, ButtonColor } from './styled';
 import SearchBar from './searchbar';
 
 class Chat extends React.Component{
@@ -12,8 +12,9 @@ class Chat extends React.Component{
         this.state = {
             stockInput:'', stocks: null
         };
+        const root_url = process.env.REACT_APP_DB_PATH;
 
-        this.socket = io('localhost:8080');
+        this.socket = io(root_url);
 
         this.socket.on('STOCKS_UPDATE', function(data){
             console.log("Update message recieved: ", data);

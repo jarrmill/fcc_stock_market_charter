@@ -1,4 +1,4 @@
-import {XYPlot,
+import {
         FlexibleWidthXYPlot,
         XAxis,
         HorizontalGridLines,
