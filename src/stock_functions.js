@@ -20,6 +20,7 @@ export function get_stock(){
 //database will update data
 export function request_stock(stock_name){
   console.log("Requesting new stock");
+  console.log("Root url: ", root_url);
   axios.post(`${root_url}/newstock`, {stock: stock_name}).then(response => {
     console.log(response);
   }).catch(error => {
