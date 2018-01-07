@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+const root_url = process.env.REACT_APP_DB_PATH;
 //"https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?api_key=YOURAPIKEY"
 export function get_stock(){
   const root_url = "https://www.quandl.com/api/v3/datasets/WIKI/"
@@ -18,7 +20,7 @@ export function get_stock(){
 //database will update data
 export function request_stock(stock_name){
   console.log("Requesting new stock");
-  axios.post('http://localhost:8080/newstock', {stock: stock_name}).then(response => {
+  axios.post(`${root_url}/newstock`, {stock: stock_name}).then(response => {
     console.log(response);
   }).catch(error => {
     console.log(error);
@@ -27,7 +29,7 @@ export function request_stock(stock_name){
 
 export function getAllStocks(){
   return new Promise(function(resolve, reject){
-    axios.get('http://localhost:8080/getstocks').then(response => {
+    axios.get(`${root_url}getstocks`).then(response => {
       resolve(response.data);
     }).catch(error => {
       reject(error);
