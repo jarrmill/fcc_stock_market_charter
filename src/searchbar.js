@@ -1,10 +1,6 @@
 import React from "react";
 import {SearchBarContainer, SearchField, SearchButton} from './styled';
 class SearchBar extends React.Component{
-  constructor(props){
-    super(props);
-    console.log(props);
-  }
   render(){
     const welcome = ">: Enter NASDAQ company here! EBAY - AAPL - AMZN - GOOG ";
     return (

@@ -6,7 +6,7 @@ const root_url = process.env.REACT_APP_DB_PATH;
 export function get_stock(){
   const root_url = "https://www.quandl.com/api/v3/datasets/WIKI/"
   const datatype = "/data.json?api_key=";
-  const api_key = "b_E8Lf_YyoR8LxfC6wmd";
+  const api_key = process.env.REACT_APP_QUANDL_KEY;
   const start_date = "&start_date=2017-10-01";
   var full_url = root_url + "AAPL" + datatype + api_key + start_date;
   console.log("Initiating get request at: ", full_url);
@@ -29,7 +29,7 @@ export function request_stock(stock_name){
 
 export function getAllStocks(){
   return new Promise(function(resolve, reject){
-    axios.get(`${root_url}getstocks`).then(response => {
+    axios.get(`${root_url}/getstocks`).then(response => {
       resolve(response.data);
     }).catch(error => {
       reject(error);

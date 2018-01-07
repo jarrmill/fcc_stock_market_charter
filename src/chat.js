@@ -80,6 +80,7 @@ class Chat extends React.Component{
       this.setState({stockInput: ev.target.value});
     }
     render(){
+      const nullMessage = "No stock data found. Try searching for a new stock!";
       if(this.state.stocks !== null){
         const stockData = this.state.stocks.slice();
           return (
@@ -95,7 +96,12 @@ class Chat extends React.Component{
           );
       } else {
         console.log("No state detected...", this.state.stocks);
-        return (<div>...loading</div>)
+        return (<div>
+                  <SearchBar title={this.state.stockInput}
+                             changeFunction={this.handleSearchBarChange}
+                             submitFunction={this.handleSubmit} />
+               <p>{nullMessage}</p>
+               </div>)
       }
     }
 }
