@@ -1,3 +1,10 @@
+A live preview of this project can be viewed here: https://jsfccstocks.herokuapp.com/
+
+Please note that as this is hosted on a free Heroku service, it can take several seconds to load.
+
+Thanks!
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
